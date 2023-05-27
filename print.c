@@ -25,12 +25,6 @@ int _printf(const char *format, ...)
 				case 'c':
 					printf("%c", va_arg(L, int));
 					break;
-				case 'i':
-					printf("%i", va_arg(L, int));
-					break;
-				case 'd':
-					printf("%d", va_arg(L, int));
-					break;
 			}
 		}
 		else
