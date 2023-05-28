@@ -11,6 +11,8 @@ void print_str(char *s);
  */
 int _putchar(char c)
 {
+	if (!c)
+		return (-1);
 	return (write(1, &c, 1));
 }
 
@@ -24,6 +26,8 @@ void print_str(char *s)
 	int i;
 
 	i = 0;
+	if (!s)
+		return;
 	while (s[i])
 	{
 		_putchar(s[i]);
@@ -50,7 +54,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			switch (format[i + 1])
 			{
