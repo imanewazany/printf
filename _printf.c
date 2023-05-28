@@ -12,8 +12,9 @@ int print_str(char *s);
 int _putchar(char c)
 {
 	if (!c)
-		return (-1);
-	return (write(1, &c, 1));
+		return (0);
+	write(1, &c, 1);
+	return (1);
 }
 
 /**
@@ -67,8 +68,7 @@ int _printf(const char *format, ...)
 					break;
 				case 'c':
 					a = va_arg(L, int);
-					_putchar(a);
-					numc++;
+					numc = numc + _putchar(a);
 					i++;
 					break;
 				case '%':
