@@ -61,25 +61,13 @@ int _printf(const char *format, ...)
 				case 's':
 					s = va_arg(L, char *);
 					if (s)
-					{
 						print_str(s);
-					}
-					else
-					{
-						return (-1);
-					}
 					i++;
 					break;
 				case 'c':
 					a = va_arg(L, int);
 					if (a)
-					{
 						_putchar(a);
-					}
-					else
-					{
-						return(-1);
-					}
 					i++;
 					break;
 				case '%':
