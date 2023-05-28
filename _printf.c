@@ -1,5 +1,36 @@
 #include "main.h"
 
+int _putchar(char c);
+void print_str(char *s);
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+/**
+ * print_str - print strind
+ * @s: String to print
+ * Return: void
+ */
+void print_str(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		_putchar(s[i]);
+		i++;
+	}
+}
+
 /**
  * _printf - produces output according to a format
  * @format: character string
@@ -23,16 +54,16 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case 's':
-					printf("%s", va_arg(L, char *));
+					print_str(va_arg(L, char *));
 					break;
 				case 'c':
-					printf("%c", va_arg(L, int));
+					_putchar(va_arg(L, int));
 					break;
 			}
 		}
 		else
 		{
-			printf("%c", format[i]);
+			_putchar(format[i]);
 			numc++;
 		}
 		i++;
