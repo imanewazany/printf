@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 	i = 0;
 	numc = 0;
 	if (format == NULL)
-		return (-1);
+		return (0);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1])
