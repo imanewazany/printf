@@ -70,6 +70,11 @@ int _printf(const char *format, ...)
 					_putchar(format[i]);
 					i++;
 					break;
+				case 'i':
+					printf("%i", va_arg(L, int));
+					break;
+				case 'd':
+					break;
 			}
 		}
 		else
