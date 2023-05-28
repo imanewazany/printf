@@ -1,7 +1,7 @@
 #include "main.h"
 
 int _putchar(char c);
-void print_str(char *s);
+int print_str(char *s);
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -19,20 +19,21 @@ int _putchar(char c)
 /**
  * print_str - print strind
  * @s: String to print
- * Return: void
- */
-void print_str(char *s)
+ * Return: strlen of s
+ */ 
+int print_str(char *s)
 {
 	int i;
 
 	i = 0;
 	if (!s)
-		return;
+		return (0);
 	while (s[i])
 	{
 		_putchar(s[i]);
 		i++;
 	}
+	return (i);
 }
 
 /**
@@ -61,12 +62,13 @@ int _printf(const char *format, ...)
 				case 's':
 					s = va_arg(L, char *);
 					if (s)
-						print_str(s);
+						numc = numc + print_str(s);
 					i++;
 					break;
 				case 'c':
 					a = va_arg(L, int);
 					_putchar(a);
+					numc++;
 					i++;
 					break;
 				case '%':
