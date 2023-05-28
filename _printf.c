@@ -47,8 +47,8 @@ int _printf(const char *format, ...)
 	i = 0;
 	numc = 0;
 	if (format == NULL)
-		return(NULL);
-	while (format[i])
+		return (-1);
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
@@ -58,14 +58,17 @@ int _printf(const char *format, ...)
 					s = va_arg(L, char *);
 					if (s)
 						print_str(s);
+					i++;
 					break;
 				case 'c':
 					a = va_arg(L, int);
 					if (a)
 						_putchar(va_arg(L, int));
+					i++;
 					break;
 				case '%':
-					_putchar("%");
+					_putchar(format[i]);
+					i++;
 					break;
 			}
 		}
