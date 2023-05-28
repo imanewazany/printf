@@ -20,9 +20,10 @@ int main(void)
 	_printf("_printf => %c\n", c);
 	_printf("_printf => %s\n", s);
 	_printf("_printf => %c, %%, %s\n", c, s);
-	_printf("%%");
-	_printf("\n");
-	_printf("aaaa%cbbbb");
+	_printf("%%s");
+	len2 = _printf("\n");
+	len = _printf("aaaa%bbbb");
+	printf("%d\n", len);
 	_printf("\n");
 	return (0);
 }
