@@ -22,7 +22,7 @@ int main(void)
 	_printf("_printf => %c, %%, %s\n", c, s);
 	_printf("%%");
 	_printf("\n");
-	_printf("%c");
+	_printf("aaaa%cbbbb");
 	_printf("\n");
 	return (0);
 }
