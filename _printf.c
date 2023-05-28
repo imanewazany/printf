@@ -39,8 +39,9 @@ void print_str(char *s)
  */
 int _printf(const char *format, ...)
 {
-	int numc, i;
+	int numc, i, a;
 	va_list L;
+	char *s;
 
 	va_start(L, format);
 	i = 0;
@@ -54,10 +55,14 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 				case 's':
-					print_str(va_arg(L, char *));
+					s = va_arg(L, char *);
+					if (s)
+						print_str(s);
 					break;
 				case 'c':
-					_putchar(va_arg(L, int));
+					a = va_arg(L, int);
+					if (a)
+						_putchar(va_arg(L, int));
 					break;
 			}
 		}
