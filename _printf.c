@@ -66,8 +66,7 @@ int _printf(const char *format, ...)
 					break;
 				case 'c':
 					a = va_arg(L, int);
-					if (a)
-						_putchar(a);
+					_putchar(a);
 					i++;
 					break;
 				case '%':
