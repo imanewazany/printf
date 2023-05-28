@@ -64,6 +64,9 @@ int _printf(const char *format, ...)
 					if (a)
 						_putchar(va_arg(L, int));
 					break;
+				case '%':
+					_putchar("%");
+					break;
 			}
 		}
 		else
