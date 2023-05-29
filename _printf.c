@@ -62,6 +62,7 @@ int _printf(const char *format, ...)
 				else
 				{
 					numc = numc + s;
+					i++;
 				}
 			}
 		}
