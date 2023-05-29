@@ -63,7 +63,6 @@ int _printf(const char *format, ...)
 				{
 					numc = numc + s;
 				}
-				i++;
 			}
 		}
 		else
