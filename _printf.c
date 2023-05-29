@@ -15,7 +15,7 @@ int print_format(va_list L, char f)
 		{"s", print_str},
 		{"c", print_char},
 		{"i", print_int},
-		{"d", print-int},
+		{"d", print_int},
 		{NULL, NULL}
 	};
 
@@ -43,6 +43,8 @@ int _printf(const char *format, ...)
 	numc = 0;
 	if (format == NULL)
 		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+       		 return (-1); 
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
@@ -76,5 +78,5 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(L);
-	return (numc);
-}
+		return (numc);
+	}
