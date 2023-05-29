@@ -1,40 +1,28 @@
 #include "main.h"
 
-int _putchar(char c);
-int print_str(char *s);
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	if (!c)
-		return (0);
-	write(1, &c, 1);
-	return (1);
-}
+int print_format(va_list L, char f);
 
 /**
- * print_str - print strind
- * @s: String to print
- * Return: strlen of s
- */ 
-int print_str(char *s)
+ * printf_format - print argument according a specific formating 
+ * @L: va_list
+ * @f: caracter to handel 
+ * Return: number of printed caracter
+ * */
+int print_format(va_list L, char f)
 {
 	int i;
+	pstruct pr[] = {
+		{"s", print_str},
+		{"c", print_char},
+		{NULL, NULL}
+	};
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	for (i = 0; pr[i].ind != NULL; i++)
 	{
-		_putchar(s[i]);
-		i++;
+		if (pr[i].ind[0] == f)
+			return (pr[i].writer(L));
 	}
-	return (i);
+	return (0);
 }
 
 /**
@@ -45,9 +33,8 @@ int print_str(char *s)
  */
 int _printf(const char *format, ...)
 {
-	int numc, i, a;
+	int numc, i, s;
 	va_list L;
-	char *s;
 
 	va_start(L, format);
 	i = 0;
@@ -58,28 +45,24 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			switch (format[i + 1])
+			if (format[i + 1] == '%')
 			{
-				case 's':
-					s = va_arg(L, char *);
-					if (s)
-						numc = numc + print_str(s);
-					i++;
-					break;
-				case 'c':
-					a = va_arg(L, int);
-					numc = numc + _putchar(a);
-					i++;
-					break;
-				case '%':
+				_putchar(format[i]);
+				numc++;
+				i++;
+			}
+		      	else
+			{
+				s = print_format(L, format[i + 1]);
+				if (s == 0)
+				{
 					_putchar(format[i]);
 					numc++;
-					i++;
-					break;
-				default :
-					_putchar(format[i]);
-					numc++;
-					break;
+				}
+				else
+				{
+					numc = numc + s;
+				}
 			}
 		}
 		else
