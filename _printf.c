@@ -14,6 +14,8 @@ int print_format(va_list L, char f)
 	pstruct pr[] = {
 		{"s", print_str},
 		{"c", print_char},
+		{"i", print_int},
+		{"d", print-int},
 		{NULL, NULL}
 	};
 

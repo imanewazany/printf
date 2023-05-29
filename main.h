@@ -20,5 +20,5 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list L);
 int print_str(va_list L);
-
+int print_int(va_list L);
 #endif
