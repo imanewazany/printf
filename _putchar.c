@@ -8,8 +8,8 @@
  */
 int _putchar(char c)
 {
-        if (!c)
-                return (0);
-        write(1, &c, 1);
-        return (1);
+	if (!c)
+		return (0);
+	write(1, &c, 1);
+	return (1);
 }

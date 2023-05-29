@@ -12,7 +12,7 @@ int main(void)
 	char *s;
 	char c;
 
-	c = 'c';
+	c = 'l';
 	s = "String";
 	len = _printf("Let's try to printf a simple sentence. %%s\n");
 	len2 = printf("Let's try to printf a simple sentence. %%s\n");

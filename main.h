@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-
 /**
  * pstruct - printer strcuture
  * @ind: special character 
