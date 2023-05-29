@@ -31,6 +31,6 @@ int print_str(va_list L)
  */
 int print_char(va_list L)
 {
-	_putchar(va_arg(L, int));
-	return (1);
+	//_putchar(va_arg(L, int));
+	return (_putchar(va_arg(L, int)));
 }
