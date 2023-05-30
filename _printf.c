@@ -16,12 +16,8 @@ int print_format(va_list L, char f)
 		{"c", print_char},
 		{"i", print_int},
 		{"d", print_int},
-<<<<<<< HEAD
 		{"b", print_uToBin},
 		{NULL, NULL}
-=======
-
->>>>>>> 048c967e92238a7ba16f6948742cdc1cea3ea429
 	};
 	for (i = 0; pr[i].ind != NULL; i++)
 	{
