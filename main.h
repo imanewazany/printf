@@ -7,8 +7,8 @@
 
 /**
  * pstruct - printer strcuture
- * @ind: special character 
- * wtiter: writer function
+ * @ind: special character
+ * Description: writer function
  */
 typedef struct pstruct
 {
