@@ -22,8 +22,11 @@ int main(void)
 	_printf("_printf => %c, %%, %s\n", c, s);
 	_printf("%%s");
 	len2 = _printf("\n");
+	printf("%d\n", len2);
 	len = _printf("aaaa%bbbb");
 	printf("%d\n", len);
-	_printf("\n");
+	len  = printf("\n");
+	printf("%d", len);
+	printf("\n");
 	return (0);
 }
