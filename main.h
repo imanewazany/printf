@@ -6,15 +6,15 @@
 #include <stdarg.h>
 
 /**
- * pstruct - printer strcuture
+ * struct pstruct - printer strcuture
  * @ind: special character
- * Description: writer function
+ * @writer: writer function
  */
 typedef struct pstruct
 {
 	char *ind;
 	int (*writer)(va_list);
-}	pstruct;
+} pstruct;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
