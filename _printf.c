@@ -43,11 +43,7 @@ int _printf(const char *format, ...)
 	if (format == NULL || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
-<<<<<<< HEAD
-		return (-1); 
-=======
 		return (-1);
->>>>>>> f948b0b9d9aa90709f6dbd77345297cff925b679
 	while (format && format[i] != '\0')
 	{
 		if (format[i] == '%')
