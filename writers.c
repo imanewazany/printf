@@ -47,16 +47,16 @@ int print_int(va_list L)
 
 	div = 1;
 	numc = 0;
-	n = va_arg(arg, int);
+	n = va_arg(L, int);
 	if (n < 0)
 	{
 		_putchar('-');
 		numc++;
 		n *= -1;
 	}
-	for (i = 0; n / div > 9; i++, divi *= 10)
+	for (i = 0; n / div > 9; i++, div *= 10)
 		;
-	for (; div >= 1; n %= divi, div /= 10, numc++)
+	for (; div >= 1; n %= div, div /= 10, numc++)
 	{
 		resp = n / div;
 		_putchar('0' + resp);
