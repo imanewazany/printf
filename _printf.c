@@ -74,6 +74,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			numc = numc + help_print(format[i], format[i + 1], L);
+			i++;
 		}
 		else
 		{
