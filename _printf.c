@@ -46,27 +46,24 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format && format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] == '%')
 		{
-			if (format[i + 1] == '%')
-			{
 			_putchar(format[i]);
+			numc++;
+			i++;
+		}
+		else if (format[i] == '%' && format[i + 1] != '%')
+		{
+			s = print_format(L, format[i + 1]);
+			if (s == 0)
+			{
+				_putchar(format[i]);
 				numc++;
-				i++;
 			}
 			else
 			{
-				s = print_format(L, format[i + 1]);
-				if (s == 0)
-				{
-					_putchar(format[i]);
-					numc++;
-				}
-				else
-				{
-					numc = numc + s;
-					i++;
-				}
+				numc = numc + s;
+				i++;
 			}
 		}
 		else
