@@ -14,7 +14,7 @@ typedef struct pstruct
 {
 	char *ind;
 	int (*writer)(va_list);
-} pstruct;
+}	pstruct;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
