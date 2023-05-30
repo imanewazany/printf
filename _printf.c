@@ -33,6 +33,7 @@ int print_format(va_list L, char f)
  * @L: va liste
  * Return: num of printed characters
  */
+
 int help_print(char s1, char s2, va_list L)
 {
 	int s;
