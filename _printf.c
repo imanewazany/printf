@@ -16,7 +16,7 @@ int print_format(va_list L, char f)
 		{"c", print_char},
 		{"i", print_int},
 		{"d", print_int},
-		{NULL, NULL}
+
 	};
 	for (i = 0; pr[i].ind != NULL; i++)
 	{
