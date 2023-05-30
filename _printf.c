@@ -1,7 +1,5 @@
 #include "main.h"
-
 int print_format(va_list L, char f);
-
 /**
  * printf_format - print argument according a specific formating 
  * @L: va_list
@@ -37,7 +35,6 @@ int _printf(const char *format, ...)
 {
 	int numc, i, s;
 	va_list L;
-
 	va_start(L, format);
 	i = 0;
 	numc = 0;
@@ -73,7 +70,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(format[i]);
-			numc++;
+			numc+i+;
 		}
 		i++;
 	}
