@@ -6,9 +6,9 @@
 #include <stdarg.h>
 
 /**
- * pstruct - printer strcuture
- * @ind: special character 
- * wtiter: writer function
+ * struct pstruct - printer strcuture
+ * @ind: special character
+ * @writer: writer function
  */
 typedef struct pstruct
 {
