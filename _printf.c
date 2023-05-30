@@ -1,12 +1,13 @@
 #include "main.h"
 
 int print_format(va_list L, char f);
+
 /**
- * printf_format - print argument according a specific formating 
+ * print_format - print argument according a specific formating
  * @L: va_list
- * @f: caracter to handel 
+ * @f: caracter to handel
  * Return: number of printed caracter
- * */
+ **/
 int print_format(va_list L, char f)
 {
 	int i;
@@ -35,13 +36,18 @@ int _printf(const char *format, ...)
 {
 	int numc, i, s;
 	va_list L;
+
 	va_start(L, format);
 	i = 0;
 	numc = 0;
 	if (format == NULL || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
+<<<<<<< HEAD
 		return (-1); 
+=======
+		return (-1);
+>>>>>>> f948b0b9d9aa90709f6dbd77345297cff925b679
 	while (format && format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -52,7 +58,7 @@ int _printf(const char *format, ...)
 				numc++;
 				i++;
 			}
-		      	else
+			else
 			{
 				s = print_format(L, format[i + 1]);
 				if (s == 0)
@@ -70,10 +76,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(format[i]);
-			numc+i+;
+			numc++;
 		}
 		i++;
 	}
 	va_end(L);
-		return (numc);
-	}
+	return (numc);
+}
