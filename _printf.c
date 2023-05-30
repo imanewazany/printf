@@ -27,6 +27,31 @@ int print_format(va_list L, char f)
 }
 
 /**
+ * help_print - help printing
+ * @s1: character
+ * @s2: character
+ * Return: num of printed characters
+ */
+int help_print(char s1, char s2, va_list L)
+{
+	int s;
+
+	if (s2 == '%')
+	{
+		_putchar(s1);
+		return (1);
+	}
+	s = print_format(L, s2);
+	if (s == 0)
+	{
+		_putchar(s1);
+		_putchar(s2);
+		return (2);
+	}
+	return (s);
+}
+
+/**
  * _printf - produces output according to a format
  * @format: character string
  * Return: the number of characters printed
@@ -34,7 +59,7 @@ int print_format(va_list L, char f)
  */
 int _printf(const char *format, ...)
 {
-	int numc, i, s;
+	int numc, i;
 	va_list L;
 
 	va_start(L, format);
@@ -46,25 +71,9 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format && format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] == '%')
+		if (format[i] == '%')
 		{
-			_putchar(format[i]);
-			numc++;
-			i++;
-		}
-		else if (format[i] == '%' && format[i + 1] != '%')
-		{
-			s = print_format(L, format[i + 1]);
-			if (s == 0)
-			{
-				_putchar(format[i]);
-				numc++;
-			}
-			else
-			{
-				numc = numc + s;
-				i++;
-			}
+			numc = numc + help_print(format[i], format[i + 1], L);
 		}
 		else
 		{
