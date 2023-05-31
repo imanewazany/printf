@@ -28,7 +28,6 @@ int print_uToBin(va_list L)
 
 	n = va_arg(L, unsigned int);
 	print_bin(n, &numc);
-	print_bin(n, &numc);
 	return (numc);
 }
 
